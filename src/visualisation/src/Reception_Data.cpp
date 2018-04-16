@@ -89,7 +89,9 @@ int main(int argc, char **argv)
   ros::Subscriber num   = nh.subscribe("numero", 1000, numeroCallback);//int64
   ros::Subscriber cam   = nh.subscribe("Image_compressed_Webcam",1000,webcamCallback);
 
-  ros::spin();
-
+  ros::Rate loop_rate(20);
+  while (ros::ok()){
+    ros::spinOnce();
+  }
   return 0;
 }
